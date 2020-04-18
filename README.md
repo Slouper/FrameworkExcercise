@@ -1,6 +1,17 @@
 # FrameworkExcercise
 Java + Selenium + TestNG + Maven + Spring basics
 
+Poznamka:
+"
+ - Vzdy kdyz neco udelas, tak na to udelaj merge request,abych na to mohl udelat code review. Nedelej tedy velke kusy, pushuj to po malych kusech, abych toho na kontrolu nemel moc a ty zase moc na predelavani. Vzdy se to v praxuí dava po kouskach, ktere jsou rozumne zvladnutelne na code review, tak at si na to zvykas :)
+ - V Idea si dej formatovani kodu Google a vzdy kod formatuj (ctrl + alt + L). Stejne tak tam nesmi zustavat warningy. v pripade ze ten warning je oduvodnen, proc ho chceme ignorovat, pak se potlaci pres anotaci @SuppressWarning  nebo neco podobneho.
+ - Cele to chci delat presne jako na projektu, edy to musi vse spolnovat to, ze to bude cisty kod apod.
+ - Promenne, tridy, metody pojmenovavat tak, aby to presne odpovidalo tomu, co metoda dela, co obsahuje promenna apod. Nebal bych se dlouhych nazvu. Vetsinou to jde ale kratce a vystizne vymyslet. Opravdu i na pojmenovani se nekde dokazi tocit na code review hooodne dlouho, takze urcite nepodcenovat.
+ - Nektere metody maji univerzalni predpony - Metoda vracejici boolean se vetsinou pojmenovava s "is" na zacatku:
+ isDisplayed(), metoda ve ktere assertuji zacina "assert" - assertExpectedProductName();....
+"
+
+
 Framework and tests creation, step by step:
 
 Everything create in your own branch (name it according functionality, that you develop in the branch) and after you will have this functionality developed, create pull/merge request on me.
@@ -22,6 +33,7 @@ Framework will contain following abstract classes, tha are parents for correspon
  - AbstractStep
  - DriverFactory (use only chromedriver)
  
+  - Selectory delej jako By (nedelej je pres anotaci Selenium @FindBy - s tim jsou pak akorat starosti)
   - Driver is available only on the pages through method getDriver(). Until you do not call getDriver() method, driver is not created (window is not open)
   - Implement Logger (org.apache.logging.log4j.Logger) and log to the console:
   Example: 
@@ -42,7 +54,15 @@ Framework will contain following abstract classes, tha are parents for correspon
       
       Running test from command line (from jenkins for example):
       mvn -DsuiteXmlFile=src/test/resources/suite/TestSuite.xml test
-       
+      
+       - Clicking, inputing and elements handling we will do thorugh:
+         Elements, Buttons, Inputs
+      
+         Usage:
+         buttons().performClick(By);
+         inputs().setValue(By, "Inserted value");
+         elements().isDisplayed(By);
+
 ========================== 2 ==================================== 
  - Implement maven profiles for test1 and test2
  
