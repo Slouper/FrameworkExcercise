@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractPage {
 
-  private WebDriver driver;
+  private static WebDriver driver;
 
-  public WebDriver getDriver() {
+  public static WebDriver getDriver() {
     if (driver == null) {
       driver = DriverFactory.createDriver();
     }
