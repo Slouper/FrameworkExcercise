@@ -2,12 +2,17 @@ package general;
 
 import config.DriverFactory;
 import element.Button;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObject.GooglePage;
 
 public class AbstractPage {
+
+  private static final Logger LOG = LogManager.getLogger(AbstractPage.class);
 
   private static WebDriver driver;
 
@@ -29,8 +34,14 @@ public class AbstractPage {
   }
 
   public void quitDriver() {
-    driver.close();
-    driver.quit();
+    try{
+      driver.close();
+      driver.quit();
+    }
+    catch (Exception exception) {
+      LOG.error("Exception on closing webdriver: ", exception);
+    }
+
   }
 
   public Button button = new Button();

@@ -12,7 +12,7 @@ public class Button extends Element {
 
   public void performClickBy(By by) {
     WebElement button = findElementBy(by);
-    LOG.debug("Click on button [{}]", button);
+    LOG.debug("Click on button: [{}]", button);
     button.click();
   }
 }

@@ -23,7 +23,7 @@ public class SeznamPage extends AbstractPage {
     LOG.debug("Typing search phrase on Seznam");
     getDriver().findElement(searchBar).sendKeys(searchPhrase);
     LOG.debug("Search for phrase");
-    button.performClickBy(searchBar);
+    button.performClickBy(searchButton);
     return new SeznamSearchResultPage();
   }
 }
