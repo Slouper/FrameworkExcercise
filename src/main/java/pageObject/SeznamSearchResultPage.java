@@ -11,9 +11,13 @@ public class SeznamSearchResultPage extends AbstractPage {
 
   private static final Logger LOG = LogManager.getLogger(SeznamSearchResultPage.class);
 
+  public boolean isOpen() {
+    return element().isDisplayed(firstSearchResult);
+  }
+
   public void openFirstSearchResult() {
-    waitForElementClickability(getDriver().findElement(firstSearchResult), 15);
+    waitForElementToBeClickable(element().find(firstSearchResult), 15);
     LOG.debug("Opening first search result");
-    getDriver().findElement(firstSearchResult).click();
+    element().find(firstSearchResult).click();
   }
 }

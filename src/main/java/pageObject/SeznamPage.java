@@ -12,18 +12,23 @@ public class SeznamPage extends AbstractPage {
 
   private static final Logger LOG = LogManager.getLogger(SeznamPage.class);
 
+  public boolean isOpen() {
+    return element().isDisplayed(searchBar);
+  }
+
   public SeznamPage navigateToSeznam() {
     LOG.debug("Opening Seznam in browser");
     getDriver().get("https://www.seznam.cz");
-    waitForElementVisibility(getDriver().findElement(searchBar), 25);
+    waitForElementVisibility(element().find(searchBar), 25);
     return this;
   }
 
   public SeznamSearchResultPage typeAndSearch(String searchPhrase) {
     LOG.debug("Typing search phrase on Seznam");
-    getDriver().findElement(searchBar).sendKeys(searchPhrase);
+    input().setValue(searchBar, searchPhrase);
     LOG.debug("Search for phrase");
-    button.performClickBy(searchButton);
+    button().click(searchButton);
+    waitForPageTitleContains(searchPhrase, 20);
     return new SeznamSearchResultPage();
   }
 }

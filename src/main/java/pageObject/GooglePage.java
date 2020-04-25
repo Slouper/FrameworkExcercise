@@ -12,18 +12,23 @@ public class GooglePage extends AbstractPage {
 
   private static final Logger LOG = LogManager.getLogger(GooglePage.class);
 
+  public boolean isOpen() {
+    return element().isDisplayed(searchBar);
+  }
+
   public GooglePage navigateToGoogle() {
     LOG.debug("Opening Google in browser");
     getDriver().get("https://www.google.cz");
-    waitForElementVisibility(getDriver().findElement(searchBar), 20);
+    waitForElementVisibility(element().find(searchBar), 20);
     return this;
   }
 
   public GoogleSearchResultPage typeAndSearch(String searchPhrase) {
     LOG.debug("Typing search phrase on Google");
-    getDriver().findElement(searchBar).sendKeys(searchPhrase);
+    input().setValue(searchBar, searchPhrase);
     LOG.debug("Search for phrase");
-    button.performClickBy(searchButton);
+    button().click(searchButton);
+    waitForPageTitleContains(searchPhrase, 20);
     return new GoogleSearchResultPage();
   }
 }

@@ -3,15 +3,13 @@ package test;
 import general.AbstractTest;
 import org.testng.annotations.Test;
 import pageObject.GooglePage;
+import util.Asserts;
 
 public class GoogleTest extends AbstractTest {
 
   @Test
   public void searchForSeleniumOnGoogle() {
-    new GooglePage()
-        .navigateToGoogle()
-        .typeAndSearch("Selenium")
-        .openFirstSearchResult();
-    //todo assert test
+    new GooglePage().navigateToGoogle().typeAndSearch("Selenium").openFirstSearchResult();
+    new Asserts().assertUrlNotContains("google");
   }
 }
