@@ -16,10 +16,9 @@ public class SeznamPage extends AbstractPage {
     return element().isDisplayed(searchBar);
   }
 
-  public SeznamPage navigateToSeznam() {
+  public SeznamPage openSeznamPage() {
     LOG.debug("Opening Seznam in browser");
     getDriver().get("https://www.seznam.cz");
-    waitForElementVisibility(element().find(searchBar), 25);
     return this;
   }
 
@@ -28,7 +27,6 @@ public class SeznamPage extends AbstractPage {
     input().setValue(searchBar, searchPhrase);
     LOG.debug("Search for phrase");
     button().click(searchButton);
-    waitForPageTitleContains(searchPhrase, 20);
     return new SeznamSearchResultPage();
   }
 }

@@ -7,6 +7,6 @@ public class AbstractTest {
 
   @AfterMethod
   protected void teardown() {
-    DriverFactory.getInstance().quitDriver();
+    DriverFactory.quitDriver();
   }
 }

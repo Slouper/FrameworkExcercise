@@ -13,26 +13,19 @@ public class DriverFactory {
 
   private static final Logger LOG = LogManager.getLogger(DriverFactory.class);
 
-  private DriverFactory() {}
+  static ThreadLocal<WebDriver> driver =
+      ThreadLocal.withInitial(
+          () -> {
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+            WebDriver driver = new ChromeDriver();
+            return configDriver(driver);
+          });
 
-  private static final DriverFactory instance = new DriverFactory();
-
-  public static DriverFactory getInstance() {
-    return instance;
-  }
-
-  ThreadLocal<WebDriver> driver =
-      ThreadLocal.withInitial(() -> {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        return configDriver(driver);
-      });
-
-  public WebDriver getDriver() {
+  public static WebDriver getDriver() {
     return driver.get();
   }
 
-  public void quitDriver() {
+  public static void quitDriver() {
     try {
       driver.get().close();
       driver.get().quit();

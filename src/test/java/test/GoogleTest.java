@@ -9,7 +9,7 @@ public class GoogleTest extends AbstractTest {
 
   @Test
   public void searchForSeleniumOnGoogle() {
-    new GooglePage().navigateToGoogle().typeAndSearch("Selenium").openFirstSearchResult();
+    new GooglePage().openGooglePage().typeAndSearch("Selenium").openFirstSearchResult();
     new Asserts().assertUrlNotContains("google");
   }
 }

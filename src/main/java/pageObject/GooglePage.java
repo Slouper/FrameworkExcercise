@@ -16,10 +16,9 @@ public class GooglePage extends AbstractPage {
     return element().isDisplayed(searchBar);
   }
 
-  public GooglePage navigateToGoogle() {
+  public GooglePage openGooglePage() {
     LOG.debug("Opening Google in browser");
     getDriver().get("https://www.google.cz");
-    waitForElementVisibility(element().find(searchBar), 20);
     return this;
   }
 
@@ -28,7 +27,6 @@ public class GooglePage extends AbstractPage {
     input().setValue(searchBar, searchPhrase);
     LOG.debug("Search for phrase");
     button().click(searchButton);
-    waitForPageTitleContains(searchPhrase, 20);
     return new GoogleSearchResultPage();
   }
 }

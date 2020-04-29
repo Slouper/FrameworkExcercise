@@ -9,7 +9,7 @@ public class SeznamTest extends AbstractTest {
 
   @Test
   public void searchForSeleniumOnSeznam() {
-    new SeznamPage().navigateToSeznam().typeAndSearch("Selenium").openFirstSearchResult();
+    new SeznamPage().openSeznamPage().typeAndSearch("Selenium").openFirstSearchResult();
     new Asserts().assertUrlNotContains("seznam");
   }
 }

@@ -4,7 +4,6 @@ import general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class Button extends Element {
 
@@ -15,8 +14,7 @@ public class Button extends Element {
   }
 
   public void click(By by) {
-    WebElement button = find(by);
-    LOG.debug("Click on button: [{}]", button);
-    button.click();
+    LOG.debug("Click on button: [{}]", by);
+    find(by).click();
   }
 }
