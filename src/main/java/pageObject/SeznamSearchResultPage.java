@@ -13,6 +13,7 @@ public class SeznamSearchResultPage extends AbstractPage {
   private static final Logger LOG = LogManager.getLogger(SeznamSearchResultPage.class);
 
   public SeznamSearchResultPage() {
+    //todo: fix isOpen method
     Asserts.assertPageIsOpen(isOpen());
   }
 

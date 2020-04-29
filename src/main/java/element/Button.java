@@ -14,7 +14,12 @@ public class Button extends Element {
   }
 
   public void click(By by) {
+    waitForElementToBeClickable(by);
     LOG.debug("Click on button: [{}]", by);
-    find(by).click();
+    try {
+      find(by).click();
+    } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+      find(by).click();
+    }
   }
 }

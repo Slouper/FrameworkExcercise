@@ -29,18 +29,18 @@ public class Element {
     return find(by).isDisplayed();
   }
 
-  public WebElement waitForElementVisibility(By by) {
+  public void waitForElementVisibility(By by) {
     LOG.debug("Waiting for element visibility: [{}]", by);
-    WebElement element = find(by);
-    getOwner().fluentWait().until(ExpectedConditions.visibilityOf(element));
-    return element;
+    getOwner().fluentWait().until(ExpectedConditions.visibilityOf(find(by)));
   }
 
-  public WebElement waitForElementToBeClickable(By by) {
+  public void waitForElementToBeClickable(By by) {
     LOG.debug("Waiting for element to be clickable: [{}]", by);
-    WebElement element = find(by);
-    getOwner().fluentWait().until(ExpectedConditions.elementToBeClickable(element));
-    return element;
+    try {
+      getOwner().fluentWait().until(ExpectedConditions.elementToBeClickable(find(by)));
+    } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+      getOwner().fluentWait().until(ExpectedConditions.elementToBeClickable(find(by)));
+    }
   }
 
   public void waitForPageTitleContains(String phrase) {
