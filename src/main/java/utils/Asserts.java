@@ -21,7 +21,7 @@ public class Asserts {
         "Current URL contains [" + phrase + "]");
   }
 
-  public static <P extends AbstractPage> void assertIsOpen(P page) throws PageIsNotOpenException {
+  public static <P extends AbstractPage> void assertIsOpen(P page) {
     if (!page.isOpen()) {
       throw new PageIsNotOpenException(format("[%s] is not open", page.getClass().getSimpleName()));
     }

@@ -24,8 +24,7 @@ public abstract class AbstractPage {
   }
 
   public FluentWait<WebDriver> fluentWait() {
-    getDriver();
-    return new FluentWait<>(driver)
+    return new FluentWait<>(getDriver())
         .pollingEvery(Duration.ofMillis(500))
         .withTimeout(Duration.ofSeconds(WAIT_TIME));
   }

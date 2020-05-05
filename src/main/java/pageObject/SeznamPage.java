@@ -1,6 +1,5 @@
 package pageObject;
 
-import exceptions.PageIsNotOpenException;
 import general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +18,7 @@ public class SeznamPage extends AbstractPage {
     return element().isDisplayed(searchBar);
   }
 
-  public SeznamPage openSeznamPage() throws PageIsNotOpenException {
+  public SeznamPage openSeznamPage() {
     LOG.debug("Opening Seznam in browser");
     getDriver().get("https://www.seznam.cz");
     Asserts.assertIsOpen(this);

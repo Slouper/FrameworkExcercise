@@ -1,6 +1,5 @@
 package pageObject;
 
-import exceptions.PageIsNotOpenException;
 import general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +17,7 @@ public class GoogleSearchResultPage extends AbstractPage {
     return element().isDisplayed(firstSearchResult);
   }
 
-  public void openFirstSearchResult() throws PageIsNotOpenException {
+  public void openFirstSearchResult() {
     Asserts.assertIsOpen(this);
     LOG.debug("Opening first search result");
     button().click(firstSearchResult);

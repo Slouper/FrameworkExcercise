@@ -1,6 +1,5 @@
 package pageObject;
 
-import exceptions.PageIsNotOpenException;
 import general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +18,7 @@ public class GooglePage extends AbstractPage {
     return element().isDisplayed(searchBar);
   }
 
-  public GooglePage openGooglePage() throws PageIsNotOpenException {
+  public GooglePage openGooglePage() {
     LOG.debug("Opening Google in browser");
     getDriver().get("https://www.google.cz");
     Asserts.assertIsOpen(this);
