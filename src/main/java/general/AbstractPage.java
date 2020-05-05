@@ -8,11 +8,13 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 
-public class AbstractPage {
+public abstract class AbstractPage {
 
   private static final int WAIT_TIME = 20;
 
   private WebDriver driver;
+
+  public abstract boolean isOpen();
 
   public WebDriver getDriver() {
     if (driver == null) {
@@ -22,6 +24,7 @@ public class AbstractPage {
   }
 
   public FluentWait<WebDriver> fluentWait() {
+    getDriver();
     return new FluentWait<>(driver)
         .pollingEvery(Duration.ofMillis(500))
         .withTimeout(Duration.ofSeconds(WAIT_TIME));

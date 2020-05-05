@@ -1,6 +1,10 @@
-package util;
+package utils;
+
+import static java.lang.String.format;
 
 import config.DriverFactory;
+import exceptions.PageIsNotOpenException;
+import general.AbstractPage;
 import org.testng.Assert;
 
 public class Asserts {
@@ -17,7 +21,9 @@ public class Asserts {
         "Current URL contains [" + phrase + "]");
   }
 
-  public static void assertPageIsOpen(boolean open) {
-    Assert.assertTrue(open, "Page is not open");
+  public static <P extends AbstractPage> void assertIsOpen(P page) throws PageIsNotOpenException {
+    if (!page.isOpen()) {
+      throw new PageIsNotOpenException(format("[%s] is not open", page.getClass().getSimpleName()));
+    }
   }
 }
