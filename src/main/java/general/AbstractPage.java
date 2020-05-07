@@ -7,7 +7,9 @@ import element.Input;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.springframework.stereotype.Component;
 
+@Component
 public abstract class AbstractPage {
 
   private static final int WAIT_TIME = 20;
