@@ -42,29 +42,25 @@ public class Element {
     LOG.debug("Waiting for element visibility: [{}]", by);
     new Utils()
         .repeatUntilSuccess(
-            () -> {
-              getOwner().fluentWait().until(ExpectedConditions.visibilityOf(find(by)));
-            });
+            () -> getOwner().getFluentWait().until(ExpectedConditions.visibilityOf(find(by))));
   }
 
   public void waitForElementToBeClickable(By by) {
     LOG.debug("Waiting for element to be clickable: [{}]", by);
     new Utils()
         .repeatUntilSuccess(
-            () -> {
-              getOwner().fluentWait().until(ExpectedConditions.elementToBeClickable(find(by)));
-            });
+            () -> getOwner().getFluentWait().until(ExpectedConditions.elementToBeClickable(find(by))));
   }
 
   public void waitForPageTitleContains(String phrase) {
     LOG.debug("Waiting for page title contains: [{}]", phrase);
-    getOwner().fluentWait().until(ExpectedConditions.titleContains(phrase));
+    getOwner().getFluentWait().until(ExpectedConditions.titleContains(phrase));
   }
 
   public void waitForPageToLoad() {
     LOG.debug("Waiting for complete load of the current page");
     getOwner()
-        .fluentWait()
+        .getFluentWait()
         .until(
             driver ->
                 String.valueOf(

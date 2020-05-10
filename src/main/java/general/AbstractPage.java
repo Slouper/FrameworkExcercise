@@ -16,6 +16,8 @@ public abstract class AbstractPage {
 
   private WebDriver driver;
 
+  private static FluentWait<WebDriver> fluentWait;
+
   public abstract boolean isOpen();
 
   public WebDriver getDriver() {
@@ -25,10 +27,14 @@ public abstract class AbstractPage {
     return driver;
   }
 
-  public FluentWait<WebDriver> fluentWait() {
-    return new FluentWait<>(getDriver())
-        .pollingEvery(Duration.ofMillis(500))
-        .withTimeout(Duration.ofSeconds(WAIT_TIME));
+  public FluentWait<WebDriver> getFluentWait() {
+    if (fluentWait == null) {
+      fluentWait =
+          new FluentWait<>(getDriver())
+              .pollingEvery(Duration.ofMillis(500))
+              .withTimeout(Duration.ofSeconds(WAIT_TIME));
+    }
+    return fluentWait;
   }
 
   private Element element;

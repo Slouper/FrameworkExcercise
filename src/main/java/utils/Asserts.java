@@ -9,13 +9,13 @@ import org.testng.Assert;
 
 public class Asserts {
 
-  public void assertUrlContains(String phrase) {
+  public static void assertUrlContains(String phrase) {
     Assert.assertTrue(
         DriverFactory.getDriver().getCurrentUrl().contains(phrase),
         "Current URL does not contain [" + phrase + "]");
   }
 
-  public void assertUrlNotContains(String phrase) {
+  public static void assertUrlNotContains(String phrase) {
     Assert.assertFalse(
         DriverFactory.getDriver().getCurrentUrl().contains(phrase),
         "Current URL contains [" + phrase + "]");
