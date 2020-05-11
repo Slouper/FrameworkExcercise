@@ -15,7 +15,7 @@ public class GoogleTest extends AbstractTest {
   private String searchedPhraseFromContext;
 
   @Test
-  public void searchForSeleniumOnGoogle_parameterFromContext() {
+  public void searchOnGoogle_parameterFromContext() {
     // Inicializujeme instance do promennych a pozdeji je pouzijeme
     GoogleStep googleStep = createStep();
     GooglePage googlePage = createPage();
@@ -25,7 +25,7 @@ public class GoogleTest extends AbstractTest {
   }
 
   @Test(dataProvider = "getTestData")
-  public void searchForSeleniumOnGoogle_parameterFromProvider(String searchedPhraseFromProvider) {
+  public void searchOnGoogle_parameterFromProvider(String searchedPhraseFromProvider) {
     // Zde neukladame instance do promennych pro pozdejsi pouziti, ale hned je pouzijeme
     // <GoogleStep> tam musi byt takto, aby vedel, jaky typ stepu ma vytvorit. V prvnim testu to vi,
     // protoze to ukladame do promenne urciteho typu.
