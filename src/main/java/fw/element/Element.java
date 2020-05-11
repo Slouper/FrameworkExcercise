@@ -1,6 +1,6 @@
-package element;
+package fw.element;
 
-import general.AbstractPage;
+import fw.general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.Utils;
+import fw.utils.Utils;
 
 public class Element {
 
@@ -39,14 +39,14 @@ public class Element {
   }
 
   public void waitForElementVisibility(By by) {
-    LOG.debug("Waiting for element visibility: [{}]", by);
+    LOG.debug("Waiting for fw.element visibility: [{}]", by);
     new Utils()
         .repeatUntilSuccess(
             () -> getOwner().getFluentWait().until(ExpectedConditions.visibilityOf(find(by))));
   }
 
   public void waitForElementToBeClickable(By by) {
-    LOG.debug("Waiting for element to be clickable: [{}]", by);
+    LOG.debug("Waiting for fw.element to be clickable: [{}]", by);
     new Utils()
         .repeatUntilSuccess(
             () -> getOwner().getFluentWait().until(ExpectedConditions.elementToBeClickable(find(by))));

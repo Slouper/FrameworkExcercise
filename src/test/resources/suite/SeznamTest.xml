@@ -5,7 +5,7 @@
 
   <test name="SeznamTest">
     <classes>
-      <class name="test.SeznamTest"/>
+      <class name="fw.test.SeznamTest"/>
     </classes>
   </test>
 </suite>

@@ -1,11 +1,6 @@
-package utils;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+package fw.utils;
 
 public class Utils {
-
-  private static final Logger LOG = LogManager.getLogger(Utils.class);
 
   public void repeatUntilSuccess(CustomAction customAction) {
     int attempt = 0;

@@ -1,11 +1,13 @@
-package test;
+package fw.test;
 
-import general.AbstractTest;
+import fw.general.AbstractTest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
-import pageObject.SeznamPage;
-import utils.Asserts;
+import fw.pageObject.SeznamPage;
+import fw.utils.Asserts;
 
+@Component
 public class SeznamTest extends AbstractTest {
 
   @Value("${searchedPhrase}")
@@ -13,7 +15,8 @@ public class SeznamTest extends AbstractTest {
 
   @Test
   public void searchForSeleniumOnSeznam() {
-    new SeznamPage().openSeznamPage().typeAndSearch(searchedPhrase).openFirstSearchResult();
+    SeznamPage seznamPage = createPage();
+    seznamPage.openSeznamPage().typeAndSearch(searchedPhrase).openFirstSearchResult();
     Asserts.assertUrlNotContains("seznam");
   }
 }

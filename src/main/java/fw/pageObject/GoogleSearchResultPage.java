@@ -1,6 +1,6 @@
-package pageObject;
+package fw.pageObject;
 
-import general.AbstractPage;
+import fw.general.AbstractPage;
 import org.openqa.selenium.By;
 
 public class GoogleSearchResultPage extends AbstractPage {

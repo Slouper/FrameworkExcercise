@@ -25,7 +25,7 @@ Create 2 tests
 - on the page seznam.cz search the term "Selenium"
 - assert that you are on next page
 - click on first searched result
-2) The same steps as in test above on the google.com page 
+2) The same steps as in fw.test above on the google.com page 
 
 Framework will contain following abstract classes, tha are parents for corresponding classes that we need for tests and for handling the driver:
  - AbstractPage
@@ -52,8 +52,8 @@ Framework will contain following abstract classes, tha are parents for correspon
         </configuration>
       </plugin>
       
-      Running test from command line (from jenkins for example):
-      mvn -DsuiteXmlFile=src/test/resources/suite/TestSuite.xml test
+      Running fw.test from command line (from jenkins for example):
+      mvn -DsuiteXmlFile=src/fw.test/resources/suite/TestSuite.xml fw.test
       
        - Clicking, inputing and elements handling we will do thorugh:
          Elements, Buttons, Inputs
@@ -86,12 +86,12 @@ Framework will contain following abstract classes, tha are parents for correspon
 
 If the profile is active (you can check it as active in Intellij IDEA in maven profiles or you enable it through command line as bellow, then into system property "execution.environment" is saved value "test1" and you can use it in your tests.
 
-Then you can run test from command line like:
-      mvn -Penv-test1 -DsuiteXmlFile=src/test/resources/suite/TestSuite.xml test
+Then you can run fw.test from command line like:
+      mvn -Penv-test1 -DsuiteXmlFile=src/fw.test/resources/suite/TestSuite.xml fw.test
 
 ========================== 3 ==================================== 
 
-Implement Spring for loading of properties files. It will ensure, that we eill load only properties, that are general or are connected directly to specififc environment, that we run tests for:
+Implement Spring for loading of properties files. It will ensure, that we eill load only properties, that are fw.general or are connected directly to specififc environment, that we run tests for:
 
 @Configuration
 @ComponentScan(basePackages = "your.base.package")

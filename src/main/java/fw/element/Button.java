@@ -1,11 +1,10 @@
-package element;
+package fw.element;
 
-import general.AbstractPage;
+import fw.general.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import utils.Utils;
+import fw.utils.Utils;
 
 public class Button extends Element {
 

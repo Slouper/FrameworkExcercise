@@ -1,4 +1,4 @@
-package exceptions;
+package fw.exceptions;
 
 public class PageIsNotOpenException extends RuntimeException {
 

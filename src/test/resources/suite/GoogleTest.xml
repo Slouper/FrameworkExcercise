@@ -5,7 +5,7 @@
 
   <test name="GoogleTest">
     <classes>
-      <class name="test.GoogleTest"/>
+      <class name="fw.test.google.GoogleTest"/>
     </classes>
   </test>
 

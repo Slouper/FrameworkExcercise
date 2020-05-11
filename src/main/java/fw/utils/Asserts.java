@@ -1,10 +1,10 @@
-package utils;
+package fw.utils;
 
 import static java.lang.String.format;
 
-import config.DriverFactory;
-import exceptions.PageIsNotOpenException;
-import general.AbstractPage;
+import fw.config.DriverFactory;
+import fw.exceptions.PageIsNotOpenException;
+import fw.general.AbstractPage;
 import org.testng.Assert;
 
 public class Asserts {

@@ -5,8 +5,8 @@
 
   <test name="Tests">
     <classes>
-      <class name="test.GoogleTest"/>
-      <class name="test.SeznamTest"/>
+      <class name="fw.test.google.GoogleTest"/>
+      <class name="fw.test.SeznamTest"/>
     </classes>
   </test>
 
