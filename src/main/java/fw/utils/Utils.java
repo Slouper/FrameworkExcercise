@@ -2,7 +2,7 @@ package fw.utils;
 
 public class Utils {
 
-  public void repeatUntilSuccess(CustomAction customAction) {
+  public static void repeatUntilSuccess(CustomAction customAction) {
     int attempt = 0;
     while (attempt < 5) {
       try {
@@ -20,7 +20,7 @@ public class Utils {
     void perform();
   }
 
-  public final void sleep(int timeout) {
+  public static void sleep(int timeout) {
     try {
       Thread.sleep(timeout);
     } catch (InterruptedException e) {

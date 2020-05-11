@@ -5,7 +5,7 @@ import fw.pageObject.GooglePage;
 
 public class GoogleStep extends AbstractStep {
 
-  public void searchePhrase(GooglePage googlePage, String searchedPhrase) {
+  public void searchPhrase(GooglePage googlePage, String searchedPhrase) {
     googlePage.openGooglePage().typeAndSearch(searchedPhrase).openFirstSearchResult();
   }
 }

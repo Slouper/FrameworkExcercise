@@ -1,11 +1,12 @@
-package fw.test;
+package fw.test.seznam;
 
 import fw.general.AbstractTest;
+import fw.pageObject.SeznamPage;
+import fw.test.seznam.step.SeznamStep;
+import fw.utils.Asserts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
-import fw.pageObject.SeznamPage;
-import fw.utils.Asserts;
 
 @Component
 public class SeznamTest extends AbstractTest {
@@ -14,9 +15,12 @@ public class SeznamTest extends AbstractTest {
   private String searchedPhrase;
 
   @Test
-  public void searchForSeleniumOnSeznam() {
+  public void searchOnSeznam() {
+
+    SeznamStep seznamStep = createStep();
     SeznamPage seznamPage = createPage();
-    seznamPage.openSeznamPage().typeAndSearch(searchedPhrase).openFirstSearchResult();
-    Asserts.assertUrlNotContains("seznam");
+
+    seznamStep.searchPhrase(seznamPage, searchedPhrase);
+    Asserts.assertUrlNotContains("search.seznam.cz");
   }
 }

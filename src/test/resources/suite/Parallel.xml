@@ -6,7 +6,7 @@
   <test name="Tests">
     <classes>
       <class name="fw.test.google.GoogleTest"/>
-      <class name="fw.test.SeznamTest"/>
+      <class name="fw.test.seznam.SeznamTest"/>
     </classes>
   </test>
 

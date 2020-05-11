@@ -8,6 +8,11 @@
   <artifactId>FrameworkExcercise</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -66,6 +71,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
           <source>8</source>
           <target>8</target>
@@ -83,7 +89,10 @@
           <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <suiteXmlFiles>src/fw.test/resources/suite/GoogleTest.xml</suiteXmlFiles>
+              <suiteXmlFiles>
+                <!--todo run multiple profiles -->
+                <suiteXmlFile>src/test/resources/suite/GoogleTest.xml</suiteXmlFile>
+              </suiteXmlFiles>
             </configuration>
           </plugin>
         </plugins>
@@ -97,7 +106,41 @@
           <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <suiteXmlFiles>src/fw.test/resources/suite/SeznamTest.xml</suiteXmlFiles>
+              <suiteXmlFiles>
+                <suiteXmlFile>src/test/resources/suite/SeznamTest.xml</suiteXmlFile>
+              </suiteXmlFiles>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>test1</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <execution.environment>test1</execution.environment>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>test2</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <execution.environment>test2</execution.environment>
+              </systemPropertyVariables>
             </configuration>
           </plugin>
         </plugins>

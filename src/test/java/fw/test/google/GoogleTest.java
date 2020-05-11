@@ -20,22 +20,22 @@ public class GoogleTest extends AbstractTest {
     GoogleStep googleStep = createStep();
     GooglePage googlePage = createPage();
 
-    googleStep.searchePhrase(googlePage, searchedPhraseFromContext);
-    Asserts.assertUrlNotContains("google");
+    googleStep.searchPhrase(googlePage, searchedPhraseFromContext);
+    Asserts.assertUrlNotContains("google.com/search");
   }
 
   @Test(dataProvider = "getTestData")
   public void searchForSeleniumOnGoogle_parameterFromProvider(String searchedPhraseFromProvider) {
     // Zde neukladame instance do promennych pro pozdejsi pouziti, ale hned je pouzijeme
-    // <GoogleStep> tam musi byt takto, aby vedel, jaky typ stepu ma vytvorit. V prvnim testu to vi, protoze to ukladame do promenne urciteho typu.
-    this.<GoogleStep>createStep()
-        .searchePhrase(createPage(), searchedPhraseFromProvider);
-    Asserts.assertUrlNotContains("google");
+    // <GoogleStep> tam musi byt takto, aby vedel, jaky typ stepu ma vytvorit. V prvnim testu to vi,
+    // protoze to ukladame do promenne urciteho typu.
+    this.<GoogleStep>createStep().searchPhrase(createPage(), searchedPhraseFromProvider);
+    Asserts.assertUrlNotContains("google.com/search");
   }
 
   @DataProvider
   private Object[][] getTestData() {
     String searchedPhrase = applicationContext.getEnvironment().getProperty("searchedPhrase");
-    return new Object[][]{{searchedPhrase}};
+    return new Object[][] {{searchedPhrase}};
   }
 }
