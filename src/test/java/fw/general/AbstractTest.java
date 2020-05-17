@@ -15,11 +15,14 @@ import org.testng.annotations.AfterMethod;
 @ContextConfiguration(classes = {EnvironmentConfig.class})
 public abstract class AbstractTest extends AbstractTestNGSpringContextTests {
 
-  @Autowired
-  protected ApplicationContext applicationContext;
+  @Autowired protected ApplicationContext applicationContext;
 
   @SafeVarargs
   protected final <P extends AbstractPage> P createPage(P... pageClass) {
+    return PageObjectFactory.createPage(applicationContext, pageClass);
+  }
+
+  protected final <P extends AbstractPage> P createPage(Class<P> pageClass) {
     return PageObjectFactory.createPage(applicationContext, pageClass);
   }
 

@@ -8,4 +8,8 @@ public class SeznamStep extends AbstractStep {
   public void searchPhrase(SeznamPage seznamPage, String searchedPhrase) {
     seznamPage.openSeznamPage().typeAndSearch(searchedPhrase).openFirstSearchResult();
   }
+
+  public void login(SeznamPage seznamPage, String loginName, String password) {
+    seznamPage.openSeznamPage().fillLoginForm(loginName, password);
+  }
 }

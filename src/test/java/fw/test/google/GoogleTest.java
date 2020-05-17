@@ -24,18 +24,16 @@ public class GoogleTest extends AbstractTest {
     Asserts.assertUrlNotContains("google.com/search");
   }
 
-  @Test(dataProvider = "getTestData")
-  public void searchOnGoogle_parameterFromProvider(String searchedPhraseFromProvider) {
-    // Zde neukladame instance do promennych pro pozdejsi pouziti, ale hned je pouzijeme
-    // <GoogleStep> tam musi byt takto, aby vedel, jaky typ stepu ma vytvorit. V prvnim testu to vi,
-    // protoze to ukladame do promenne urciteho typu.
-    this.<GoogleStep>createStep().searchPhrase(createPage(), searchedPhraseFromProvider);
-    Asserts.assertUrlNotContains("google.com/search");
+  @Test(dataProvider = "getTestLoginData")
+  public void loginWithGoogleAccount(String email, String password) {
+    this.<GoogleStep>createStep().login(createPage(), email, password);
+    Asserts.assertIsOpen(createPage(GooglePage.class));
   }
 
   @DataProvider
-  private Object[][] getTestData() {
-    String searchedPhrase = applicationContext.getEnvironment().getProperty("searchedPhrase");
-    return new Object[][] {{searchedPhrase}};
+  private Object[][] getTestLoginData() {
+    String email = applicationContext.getEnvironment().getProperty("email");
+    String password = applicationContext.getEnvironment().getProperty("password");
+    return new Object[][] {{email, password}};
   }
 }

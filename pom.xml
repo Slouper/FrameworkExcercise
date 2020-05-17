@@ -82,6 +82,8 @@
 
   <profiles>
 
+    <!--todo add profile for run all tests-->
+
     <profile>
       <id>google</id>
       <build>
@@ -90,9 +92,11 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
               <suiteXmlFiles>
-                <!--todo run multiple profiles -->
                 <suiteXmlFile>src/test/resources/suite/GoogleTest.xml</suiteXmlFile>
               </suiteXmlFiles>
+              <systemPropertyVariables>
+                <app>google</app>
+              </systemPropertyVariables>
             </configuration>
           </plugin>
         </plugins>
@@ -109,6 +113,9 @@
               <suiteXmlFiles>
                 <suiteXmlFile>src/test/resources/suite/SeznamTest.xml</suiteXmlFile>
               </suiteXmlFiles>
+              <systemPropertyVariables>
+                <app>seznam</app>
+              </systemPropertyVariables>
             </configuration>
           </plugin>
         </plugins>
