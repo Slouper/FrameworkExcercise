@@ -36,6 +36,7 @@ public class SeznamPage extends AbstractPage {
   }
 
   public SeznamEmailPage fillLoginForm(String loginName, String password) {
+    button().click(usernameInput);
     input().setValue(usernameInput, loginName);
     input().setValue(passwordInput, password);
     button().click(loginButton);
