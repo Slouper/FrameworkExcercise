@@ -3,7 +3,7 @@ package fw.test;
 import static io.restassured.RestAssured.get;
 
 import fw.general.AbstractTest;
-import fw.pojo.Translations;
+import fw.pojo.code.Code;
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Value;
 import org.testng.annotations.Test;
@@ -15,15 +15,12 @@ public class CodeTest extends AbstractTest {
 
   @Test
   public void codeForCzechRepublic() {
-    //todo fix -> everything is inside additionalProperties
-    Translations translations =
+    Code code =
         get(baseUrl + "/alpha/cz")
             .then()
             .assertThat()
             .statusCode(HttpStatus.SC_OK)
             .extract()
-            .as(Translations.class);
-    System.out.println(translations.getAdditionalProperties());
-    System.out.println(translations.getEs());
+            .as(Code.class);
   }
 }
