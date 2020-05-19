@@ -55,11 +55,6 @@ public class Translations {
     this.de = de;
   }
 
-  public Translations withDe(String de) {
-    this.de = de;
-    return this;
-  }
-
   @JsonProperty("es")
   public String getEs() {
     return es;
@@ -68,11 +63,6 @@ public class Translations {
   @JsonProperty("es")
   public void setEs(String es) {
     this.es = es;
-  }
-
-  public Translations withEs(String es) {
-    this.es = es;
-    return this;
   }
 
   @JsonProperty("fr")
@@ -85,11 +75,6 @@ public class Translations {
     this.fr = fr;
   }
 
-  public Translations withFr(String fr) {
-    this.fr = fr;
-    return this;
-  }
-
   @JsonProperty("ja")
   public String getJa() {
     return ja;
@@ -98,11 +83,6 @@ public class Translations {
   @JsonProperty("ja")
   public void setJa(String ja) {
     this.ja = ja;
-  }
-
-  public Translations withJa(String ja) {
-    this.ja = ja;
-    return this;
   }
 
   @JsonProperty("it")
@@ -115,11 +95,6 @@ public class Translations {
     this.it = it;
   }
 
-  public Translations withIt(String it) {
-    this.it = it;
-    return this;
-  }
-
   @JsonProperty("br")
   public String getBr() {
     return br;
@@ -128,11 +103,6 @@ public class Translations {
   @JsonProperty("br")
   public void setBr(String br) {
     this.br = br;
-  }
-
-  public Translations withBr(String br) {
-    this.br = br;
-    return this;
   }
 
   @JsonProperty("pt")
@@ -145,11 +115,6 @@ public class Translations {
     this.pt = pt;
   }
 
-  public Translations withPt(String pt) {
-    this.pt = pt;
-    return this;
-  }
-
   @JsonProperty("nl")
   public String getNl() {
     return nl;
@@ -158,11 +123,6 @@ public class Translations {
   @JsonProperty("nl")
   public void setNl(String nl) {
     this.nl = nl;
-  }
-
-  public Translations withNl(String nl) {
-    this.nl = nl;
-    return this;
   }
 
   @JsonProperty("hr")
@@ -175,11 +135,6 @@ public class Translations {
     this.hr = hr;
   }
 
-  public Translations withHr(String hr) {
-    this.hr = hr;
-    return this;
-  }
-
   @JsonProperty("fa")
   public String getFa() {
     return fa;
@@ -190,11 +145,6 @@ public class Translations {
     this.fa = fa;
   }
 
-  public Translations withFa(String fa) {
-    this.fa = fa;
-    return this;
-  }
-
   @JsonAnyGetter
   public Map<String, Object> getAdditionalProperties() {
     return this.additionalProperties;
@@ -203,10 +153,5 @@ public class Translations {
   @JsonAnySetter
   public void setAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
-  }
-
-  public Translations withAdditionalProperty(String name, Object value) {
-    this.additionalProperties.put(name, value);
-    return this;
   }
 }
