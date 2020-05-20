@@ -36,7 +36,7 @@ import lombok.Setter;
 })
 @Getter
 @Setter
-public class Code {
+public class CountryInfo {
 
   @JsonProperty("name")
   private String name;
