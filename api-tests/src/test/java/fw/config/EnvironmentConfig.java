@@ -6,5 +6,5 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan(basePackages = "fw")
-@PropertySource(value = "properties/execution.properties", encoding = "UTF-8")
+@PropertySource(value = "properties/${api.execution.environment}.properties", encoding = "UTF-8")
 public class EnvironmentConfig {}
